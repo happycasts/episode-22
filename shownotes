@@ -1,1 +1,19 @@
 - <http://en.wikipedia.org/wiki/Shebang_(Unix)>
+- <http://www.gnu.org/software/bash/manual/bash.html#Command-Substitution>
+
+```terminal
+man find
+```
+
+```hello.sh
+#!/usr/bin/env bash
+echo "hello"
+```
+
+```replace_all.sh
+#!/usr/bin/env bash
+for file in `find . -type f`
+do
+    sed -i 's/someword/otherword/g' $file
+done
+```
