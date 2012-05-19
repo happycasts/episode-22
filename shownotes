@@ -1,19 +1,48 @@
 - <http://en.wikipedia.org/wiki/Shebang_(Unix)>
 - <http://www.gnu.org/software/bash/manual/bash.html#Command-Substitution>
+- <http://linuxcommand.org/tlcl.php>
+- 
 
-```terminal
-man find
-```
-
-```hello.sh
+```for.sh
 #!/usr/bin/env bash
-echo "hello"
-```
-
-```replace_all.sh
-#!/usr/bin/env bash
-for file in `find . -type f`
+for i in `ls`
 do
-    sed -i 's/someword/otherword/g' $file
+    echo $i
+done
+```
+
+```position.sh
+#!/usr/bin/env bash
+echo "
+Number of arguments: $#
+The program name is: $0
+The first argument is: $1
+"
+```
+
+```delete_or_not.sh
+#!/usr/bin/env bash
+
+if [ $# != 1 ]
+then
+    echo """
+Error: missing operand
+Usage: ./delete_or_not.sh PATHNAME
+         """ >&2
+    exit 1
+fi
+
+cd $1
+for file in `ls`
+do
+    echo -n "Want to delete:$file ? (Y/n): "
+    read AAA
+    if [ "${AAA:-y}" = "y" ];then
+        echo delete $file
+        rm $file
+        echo ...done
+    else 
+        echo pass
+    fi
 done
 ```

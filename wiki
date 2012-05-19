@@ -2,3 +2,8 @@ need to be a "learn by examples" bash learning series
 
 show demo programs for "for" "if" first, then add feathers and combine things to be sth practically useful.
 don't show things can be easily found on books
+
+# if
+http://tldp.org/LDP/abs/html/testconstructs.html
+[ if for `test`
+[[ is more than `test`
